@@ -57,7 +57,7 @@ session_start();
  	<table class='table table-striped table-responsive' > 
 	<?php
 
- 		$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
+ 		$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
  		$sql="
  		SELECT t1.title,t1.content,t2.login,t1.post_date FROM post as t1
  		INNER JOIN user as t2 ON (t1.user_id=t2.id) WHERE t1.id=$_GET[id]";
@@ -72,7 +72,7 @@ session_start();
  				";
  			}
  		$conn=null;
- 		$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
+ 		$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
  		$sql="
  		SELECT t1.content,t2.login,t1.post_date FROM comment as t1
  		INNER JOIN user as t2 ON (t1.user_id=t2.id) WHERE t1.post_id=$_GET[id]

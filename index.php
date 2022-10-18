@@ -139,7 +139,7 @@ window.onclick = function(event) {
  						<div id="myDropdown" class="dropdown-content">
     						<a href="index.php">-- ทั้งหมด --</a>
     						<?php
-    							$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
+    							$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
     							$sql = "SELECT*FROM category";
     							foreach ($conn->query($sql) as $row) {
     								echo "<a href='index.php?catid=".$row['id']."&name=".$row['name']."'>".$row['name']."</a>";
@@ -162,7 +162,7 @@ window.onclick = function(event) {
    	 		echo "<br>";
    	 		echo "<table class='table table-striped'>";		
 
-			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
+			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
 			$sql = "SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date FROM post as t1 INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON(t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
 			$re = $conn->query($sql);
 

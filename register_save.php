@@ -8,7 +8,7 @@
 $_SESSION['error'] = "t";
 $_SESSION['ss'] = "f";
 	
-	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
+	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
 	$sql1 = "SELECT * FROM user where login = '$login' ";
 	$re=$conn->query($sql1);
 		if($re->rowCount()>=1){
