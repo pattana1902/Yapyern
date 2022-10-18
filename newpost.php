@@ -72,7 +72,7 @@ if(!isset($_SESSION['username'])){
 	        						<?php
 	        						/////////////////////////////////////////////////////////
 
-	        						$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+	        						$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
 	        						$sql = "SELECT * FROM category";
 
 	        						foreach ($conn->query($sql) as $row) {

@@ -11,7 +11,7 @@
 	$u = $_POST['Name'];
 	$p = $_POST['Password'];
 
-	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "");
 	$sql = "SELECT * FROM user where login = '$u' and password=sha1('$p')";
 	$result = $conn->query($sql);
 	if($result->rowCount() == 1){
