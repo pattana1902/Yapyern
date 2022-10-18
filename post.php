@@ -8,8 +8,8 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/main.css?version=1" />
-	<link rel="stylesheet" href="assets/css/html5sticky.css?version=1" />
+	<link rel="stylesheet" href="./assets/css/main.css?version=1" />
+	<link rel="stylesheet" href="./assets/css/html5sticky.css"/>
 
 	<!-- Java Script -->
 	<script src="bootstrap/js/jquery-3.5.1.min.js"></script>
@@ -142,7 +142,7 @@ session_start();
 	<!-- Sticky Note -->
 
       <div class="left topsection">
-         <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="./assets/img/add.png" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
+         <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="/assets/img/add.png" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
          <a href="#" id="removenotes" class="tooltip blue-tooltip"><img src="./assets/img/remove.png" alt="Remove all sticky notes"><span>Remove all sticky notes</span></a>
       </div>
 

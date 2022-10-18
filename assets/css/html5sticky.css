@@ -1,16 +1,3 @@
-/*
-   HTML5STICKY (http://github.com/sarfraznawaz2005/HTML5Sticky)
-   ================================================================
-   Author   : Sarfraz Ahmed (sarfraznawaz2005@gmail.com)
-   Twitter  : @sarfraznawaz
-   Blog     : http://sarfraznawaz.wordpress.com/
-   LICENSE  : MIT
-   ================================================================
-*/
-
-
-/* common styles start */
-
 h1 {
     font-size: 1.6em;
 }
@@ -49,10 +36,6 @@ textarea {
 
 
 /* common styles end */
-
-body {
-    padding: 10px 30px 10px 30px;
-}
 
 h1 {
     float: left;
