@@ -74,7 +74,7 @@ session_start();
 				echo "<div class='panel panel-primary'>
  						<div class='panel-heading'>" . $row['0'] . "</div>
  						<div class='panel-body'>" . $row['1'] . "<br><br>
- 						" . $row['2'] . " โพสต์เมื่อวันที่ " . $row['3'] . "</div></div>
+ 						"  . " โพสต์เมื่อวันที่ " . $row['3'] . "</div></div>
  				";
 			}
 			$conn = null;

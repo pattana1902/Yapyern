@@ -22,7 +22,7 @@ if (isset($_SESSION['username']) == "member" && isset($_SESSION['username']) == 
 </head>
 
 <body>
-	<div id="divfix">
+	
 		<div class="container">
 			<?php
 			if (!isset($_SESSION["error"])) {
@@ -78,7 +78,7 @@ if (isset($_SESSION['username']) == "member" && isset($_SESSION['username']) == 
 
 			</form>
 		</div>
-	</div>
+	
 </body>
 
 </html>
