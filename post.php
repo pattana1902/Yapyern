@@ -8,20 +8,12 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/css/main.css?version=1" />
-	<link rel="stylesheet" href="./assets/css/html5sticky.css"/>
-
+	<link rel="stylesheet" href="css/style.css">
 	<!-- Java Script -->
 	<script src="bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>
-		!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery1.6.2.js"%3E%3C/script%3E'))
-	</script>
-	<script src="assets/js/respond.min.js"></script>
-	<script src="assets/js/modernizr.custom.23610.js"></script>
-	<script src="assets/js/html5sticky.js"></script>
-	<script src="assets/js/prettyDate.js"></script>
+   
 </head>
 <style>
 	table th {
@@ -138,39 +130,18 @@ session_start();
 	</table>
 	</form>-->
 	<p style="text-align: center;"> <a href="index.php">กลับไปหน้าหลัก</a></p>
-
 	<!-- Sticky Note -->
+	<h1>ส่งกำลังใจผ่านโพสอิท</h1>
+    <div class="input-box">
+        <input type="text" class="form-control form-control-lg" id="noteInput" placeholder="ใส่ข้อความกำลังใจที่นี่">
+        <button id="addNoteBtn" type="submit">ส่งกำลังใจ</button>
+        <p id="error-msg">Please enter a valid message!</p>
+    </div>
+    <div id="container">
 
-      <div class="left topsection">
-         <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="./assets/img/add.png" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
-         <a href="#" id="removenotes" class="tooltip blue-tooltip"><img src="./assets/img/remove.png" alt="Remove all sticky notes"><span>Remove all sticky notes</span></a>
-      </div>
-
-      <div class="left topsection">
-         <a href="#" id="shrink" class="tooltip blue-tooltip"><img src="assets/img/decrease.png" alt="Shrink"><span>Shrink sticky notes</span></a>
-         <a href="#" id="expand" class="tooltip blue-tooltip"><img src="assets/img/increase.png" alt="Expand"><span>Expand sticky notes</span></a>
-      </div>
-
-
-   <div id="main"></div>
-
-   <div class="clear">&nbsp;</div>
-   <div class="clear">&nbsp;</div>
-
-   <footer>
-      <!-- Place this tag where you want the +1 button to render -->
-      <g:plusone size="medium" href="http://sarfraznawaz2005.kodingen.com/html5sticky/"></g:plusone>
-
-      <!-- Place this tag after the last plusone tag -->
-      <script>
-        (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/plusone.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      </script>      
-   </footer>
-
+    </div>
+	<!-- Sticky Note -->
+	<script src="script/script.js"></script>
 </body>
 
 </html>
