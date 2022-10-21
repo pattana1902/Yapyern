@@ -142,7 +142,7 @@ session_start();
 	<!-- Sticky Note -->
 
       <div class="left topsection">
-         <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="/assets/img/add.png" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
+         <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="./assets/img/add.png" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
          <a href="#" id="removenotes" class="tooltip blue-tooltip"><img src="./assets/img/remove.png" alt="Remove all sticky notes"><span>Remove all sticky notes</span></a>
       </div>
 
