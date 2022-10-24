@@ -15,27 +15,55 @@ if (isset($_GET['name'])) {
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<script src="bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<title></title>
+	<title>หน้าหลัก</title>
 
 	<style>
 		body {
 			background-color: #CAC9FF;
 		}
 
-		table.roundedCorners {
-			border: 1px solid DarkOrange;
-			border-radius: 13px;
+		table {
+			border-collapse: separate;
 			border-spacing: 0;
+			min-width: 350px;
 		}
 
-		table.roundedCorners td,
-		table.roundedCorners th {
-			border-bottom: 1px solid DarkOrange;
-			padding: 10px;
+		table tr th,
+		table tr td {
+			border-right: 1px solid #bbb;
+			border-bottom: 1px solid #bbb;
+			padding: 5px;
 		}
 
-		table.roundedCorners tr:last-child>td {
-			border-bottom: none;
+		table tr th:first-child,
+		table tr td:first-child {
+			border-left: 1px solid #bbb;
+		}
+
+		table tr th {
+			background: #eee;
+			border-top: 1px solid #bbb;
+			text-align: left;
+		}
+
+		/* top-left border-radius */
+		table tr:first-child th:first-child {
+			border-top-left-radius: 6px;
+		}
+
+		/* top-right border-radius */
+		table tr:first-child th:last-child {
+			border-top-right-radius: 6px;
+		}
+
+		/* bottom-left border-radius */
+		table tr:last-child td:first-child {
+			border-bottom-left-radius: 6px;
+		}
+
+		/* bottom-right border-radius */
+		table tr:last-child td:last-child {
+			border-bottom-right-radius: 6px;
 		}
 
 		.dropbtn {
@@ -117,133 +145,135 @@ if (isset($_GET['name'])) {
 			}
 		}
 	</script>
-
-	<div class="plnel panel-default">
-		<div class="panel-body">
-			<center>
-				<h1>YAPYERN</h1>
-			</center>
-		</div>
-	</div>
-
-
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<nav class="navbar navbar-default">
-					<div class="container-fluid">
-						<ul class="nav navbar-nav">
-							<li><a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<?php
+		<div class="plnel panel-default">
+			<div class="panel-body">
+				<center>
+					<h1>YAPYERN</h1>
+				</center>
+			</div>
+		</div>
 
-							if (!isset($_SESSION['username'])) {
-								echo "<a class='navbar-brand' href='login.php'><span class='glyphicon glyphicon-edit'> Login</span></a>";
-							} else {
 
-								echo "<li class='dropdown' style='cursor: pointer';>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<ul class="nav navbar-nav">
+								<li><a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<?php
+
+								if (!isset($_SESSION['username'])) {
+									echo "<a class='navbar-brand' href='login.php'><span class='glyphicon glyphicon-edit'> Login</span></a>";
+								} else {
+
+									echo "<li class='dropdown' style='cursor: pointer';>
 									<a class='dropdown-toggle' data-toggle='dropdown'>" .
-									"<span class='glyphicon glyphicon-user'></span>" . $_SESSION['username'] . "<span class='caret'></span>
+										"<span class='glyphicon glyphicon-user'></span>" . $_SESSION['username'] . "<span class='caret'></span>
 									</a>
 									<ul class='dropdown-menu'>
 									<li><a href=logout.php><span class='glyphicon glyphicon-off'></span>&nbsp;&nbsp;ออกจากระบบ</a></li>
 										</ul>
 									</li>";
-							}
-							?>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
-
-
-
-		<div class="row">
-			<div class="form-group">
-				<div class="col-sm-1 col-md-3">
-					<div class="dropdown"><label>หมวดหมู่</label>
-						<div class="dropdown">
-							<button onclick="myFunction1()" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?php echo $catname; ?> &nbsp;&nbsp;<span class="caret"></span></button>
-							<div id="myDropdown" class="dropdown-content">
-								<a href="index.php">-- ทั้งหมด --</a>
-								<?php
-								$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "root", "root");
-								$sql = "SELECT*FROM category";
-								foreach ($conn->query($sql) as $row) {
-									echo "<a href='index.php?catid=" . $row['id'] . "&name=" . $row['name'] . "'>" . $row['name'] . "</a>";
 								}
-								$conn = null;
 								?>
-							</div>
+							</ul>
 						</div>
-					</div>
+					</nav>
 				</div>
 			</div>
 
 
-			<?php
 
-			if (isset($_SESSION['id'])) {
-				echo "<a href='newpost.php'><button class='btn btn-success pull-right'><span class='glyphicon glyphicon-plus'></span>สร้างกระทู้ใหม่</button></a>";
-			}
-			echo "</div>";
-			echo "<br>";
-			echo "<table class='table table-striped'>";
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-1 col-md-3">
+						<div class="dropdown"><label>หมวดหมู่</label>
+							<div class="dropdown">
+								<button onclick="myFunction1()" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?php echo $catname; ?> &nbsp;&nbsp;<span class="caret"></span></button>
+								<div id="myDropdown" class="dropdown-content">
+									<a href="index.php">-- ทั้งหมด --</a>
+									<?php
+									$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+									$sql = "SELECT*FROM category";
+									foreach ($conn->query($sql) as $row) {
+										echo "<a href='index.php?catid=" . $row['id'] . "&name=" . $row['name'] . "'>" . $row['name'] . "</a>";
+									}
+									$conn = null;
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "root", "root");
-			$sql = "SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date,t1.content FROM post as t1 INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON(t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
-			$re = $conn->query($sql);
 
-			if (isset($_SESSION['id'])) {
+				<?php
 
-				if ($_SESSION['role'] == "a") {
-					while ($row = $re->fetch()) {
-						if (isset($_GET['name'])) {
-							if ($row['0'] == $_GET['name']) {
+				if (isset($_SESSION['id'])) {
+					echo "<a href='newpost.php'><button class='btn btn-success pull-right'><span class='glyphicon glyphicon-plus'></span>สร้างกระทู้ใหม่</button></a>";
+				}
+				echo "</div>";
+				echo "<br>";
+				echo "<table class='table table-striped'>";
+
+				$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+				$sql = "SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date,t1.content FROM post as t1 INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON(t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
+				$re = $conn->query($sql);
+
+				if (isset($_SESSION['id'])) {
+
+					if ($_SESSION['role'] == "a") {
+						while ($row = $re->fetch()) {
+							if (isset($_GET['name'])) {
+								if ($row['0'] == $_GET['name']) {
+									echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>" . $row['3'] . " - " . $row['4'] . "</td><td></td><td><a href=delete.php?id=" . $row['1'] . " onclick='return myFunction();'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></button></a></td></tr>";
+								}
+							} else {
 								echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>" . $row['3'] . " - " . $row['4'] . "</td><td></td><td><a href=delete.php?id=" . $row['1'] . " onclick='return myFunction();'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></button></a></td></tr>";
 							}
-						} else {
-							echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>" . $row['3'] . " - " . $row['4'] . "</td><td></td><td><a href=delete.php?id=" . $row['1'] . " onclick='return myFunction();'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></button></a></td></tr>";
+						}
+					} else if ($_SESSION['role'] == "m") {
+						while ($row = $re->fetch()) {
+
+							if (isset($_GET['name'])) {
+								if ($row['0'] == $_GET['name']) {
+									echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"   . $row['4'] . "</td></tr>";
+								}
+							} else {
+								echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"   . $row['4'] . "</td></tr>";
+							}
 						}
 					}
-				} else if ($_SESSION['role'] == "m") {
+				} else {
 					while ($row = $re->fetch()) {
 
 						if (isset($_GET['name'])) {
 							if ($row['0'] == $_GET['name']) {
-								echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"   . $row['4'] . "</td></tr>";
+								echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"  . $row['4'] . "</td></tr>";
 							}
 						} else {
-							echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"   . $row['4'] . "</td></tr>";
-						}
-					}
-				}
-			} else {
-				while ($row = $re->fetch()) {
-
-					if (isset($_GET['name'])) {
-						if ($row['0'] == $_GET['name']) {
 							echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"  . $row['4'] . "</td></tr>";
 						}
-					} else {
-						echo "<tr><td>[ " . $row['0'] . " ] <a href=post.php?id=" . $row['1'] . ">" . $row['2'] . "</a><br>"  . $row['4'] . "</td></tr>";
 					}
 				}
-			}
 
-			$conn = null;
-
-
-			echo "</table>";
+				$conn = null;
 
 
+				echo "</table>";
 
-			?>
 
 
+				?>
+
+
+			</div>
 		</div>
+	</div>
 
 </body>
 

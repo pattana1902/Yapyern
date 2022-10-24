@@ -6,7 +6,7 @@
 		die();
 		
 	}else{
-	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
+	$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
 	$sql = "DELETE FROM post WHERE id=$_GET[id]";
 	$conn->exec($sql);
 	$sql2 = "DELETE FROM comment WHERE post_id=$_GET[id]";

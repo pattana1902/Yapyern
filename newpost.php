@@ -9,8 +9,12 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<script src="bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<title></title>
-
+	<title>ตั้งกระทู้</title>
+<style>
+	body {
+		background-color: #CAC9FF;
+	}
+</style>
 </head>
 <body>
 
@@ -21,7 +25,7 @@ if(!isset($_SESSION['username'])){
 
 <div class="container">
 	<div class="plnel panel-default">
-		<div class="panel-body"><center><h1>NEW POST</h1></center></div>
+		<div class="panel-body"><center><h1>YAPYERN</h1></center></div>
 	</div>
 	
 	<div class="row">
@@ -72,7 +76,7 @@ if(!isset($_SESSION['username'])){
 	        						<?php
 	        						/////////////////////////////////////////////////////////
 
-	        						$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "root" , "root");
+	        						$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
 	        						$sql = "SELECT * FROM category";
 
 	        						foreach ($conn->query($sql) as $row) {

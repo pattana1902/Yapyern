@@ -9,6 +9,7 @@ session_start();
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+
 	<!-- Java Script -->
 	<script src="bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -16,14 +17,18 @@ session_start();
    
 </head>
 <style>
+	body {
+		background-color: #CAC9FF;
+	}
 	table th {
 		background-color: #6CD2FE;
 	}
+
 </style>
 
 <body>
 	<?php
-	echo "<h1><center>ยับเยิน</center></h1><hr>";
+	echo "<h1><center>YAPYERN</center></h1><hr>";
 	if (!isset($_SESSION["username"])) {
 		echo "<div class='container'>
 	 			<div class='panel panel-default'>
@@ -63,7 +68,7 @@ session_start();
 		<table class='table table-striped table-responsive'>
 			<?php
 
-			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "root", "root");
+			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
 			$sql = "
  		SELECT t1.title,t1.content,t2.login,t1.post_date FROM post as t1
  		INNER JOIN user as t2 ON (t1.user_id=t2.id) WHERE t1.id=$_GET[id]";
@@ -78,7 +83,7 @@ session_start();
  				";
 			}
 			$conn = null;
-			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "root", "root");
+			$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
 			$sql = "
  		SELECT t1.content,t2.login,t1.post_date FROM comment as t1
  		INNER JOIN user as t2 ON (t1.user_id=t2.id) WHERE t1.post_id=$_GET[id]
