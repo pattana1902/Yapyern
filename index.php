@@ -187,9 +187,6 @@ if (isset($_GET['name'])) {
 					</nav>
 				</div>
 			</div>
-
-
-
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-1 col-md-3">
@@ -221,13 +218,10 @@ if (isset($_GET['name'])) {
 				echo "</div>";
 				echo "<br>";
 				echo "<table class='table table-striped'>";
-
 				$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "yapyernlnw_root", "Kaekosa001");
 				$sql = "SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date,t1.content FROM post as t1 INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON(t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
 				$re = $conn->query($sql);
-
 				if (isset($_SESSION['id'])) {
-
 					if ($_SESSION['role'] == "a") {
 						while ($row = $re->fetch()) {
 							if (isset($_GET['name'])) {
@@ -262,18 +256,10 @@ if (isset($_GET['name'])) {
 						}
 					}
 				}
-
 				$conn = null;
-
-
 				echo "</table>";
-
-
-
 				?>
-
-
-			</div>
+		</div>
 		</div>
 	</div>
 
