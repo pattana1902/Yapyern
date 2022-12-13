@@ -162,6 +162,8 @@ if (isset($_GET['name'])) {
 						<div class="container-fluid">
 							<ul class="nav navbar-nav">
 								<li><a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
+								<li><a class="navbar-brand" href="./manual.html"><span class="glyphicon glyphicon-info-sign"> วิธีการใช้งาน</span></a></li>
+								<li><a class="navbar-brand" href="report.html"><span class="glyphicon glyphicon-envelope"> แจ้งปัญหาผู้ใช้</span></a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<?php
@@ -197,7 +199,7 @@ if (isset($_GET['name'])) {
 								<div id="myDropdown" class="dropdown-content">
 									<a href="index.php">-- ทั้งหมด --</a>
 									<?php
-									$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+									$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "yapyernlnw_root", "Kaekosa001");
 									$sql = "SELECT*FROM category";
 									foreach ($conn->query($sql) as $row) {
 										echo "<a href='index.php?catid=" . $row['id'] . "&name=" . $row['name'] . "'>" . $row['name'] . "</a>";
@@ -220,7 +222,7 @@ if (isset($_GET['name'])) {
 				echo "<br>";
 				echo "<table class='table table-striped'>";
 
-				$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8" , "yapyernlnw_root" , "Kaekosa001");
+				$conn = new PDO("mysql:host=localhost;dbname=yapyernlnw_webboard;charset=utf8", "yapyernlnw_root", "Kaekosa001");
 				$sql = "SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date,t1.content FROM post as t1 INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON(t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
 				$re = $conn->query($sql);
 
